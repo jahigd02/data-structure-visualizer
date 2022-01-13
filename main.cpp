@@ -17,16 +17,20 @@
 void linkedlist_menu();
 void linkedlist_insertnode_shell(int val);
 void linkedlist_deletenode_shell(int val);
-void linkedlist_freememory_shell();
 void linkedlist_printlist_shell();
 
 linkedlist myList;
 bst myBst;
 
 
-int main_menu(int argc, char* argv[])
+int main(int argc, char* argv[])
 {
-    //linkedlist_menu();
+    linkedlist_menu();
+
+}
+
+int main_menu()
+{
 
 }
 
@@ -57,7 +61,8 @@ void linkedlist_menu()
             std::cout << "\n";
             break;
         case 9:
-            linkedlist_freememory_shell();
+            main(); //replace this with the main menu function when it's completed.
+	    break;
         deafult:
             linkedlist_printlist_shell();
     }
