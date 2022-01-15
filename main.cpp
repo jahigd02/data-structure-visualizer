@@ -9,6 +9,10 @@
     //NEEDS TO FREE (delete()) ALL POINTERS, SO WE NEED TO KEEP UP A LIST OF ALL THE POINTERS           -- DONE
 //WRITE EXIT PROGRAM FUNCTIONALITY
 //FINISH BST IMPLEMENTATION
+    //WRITE LINKED LIST INITIALIZATION -- AKA, WE NEED A WAY TO DELETE THE WHOLE THING!
+        //WRITE DELETION (WE NEED POST ORDER)
+        //WRITE BALANCE FUNCTIONALITY?
+        //WRITE GETHEIGHT FUNCTION
 //POSSIBLY UPGRADE OR ADD DOUBLY LINKED + CIRCULAR FUNCTIONALITY TO LINKED LIST
 //IMPLEMENT STACK
 //IMPLEMENT QUEUE
@@ -45,6 +49,8 @@ void main_menu()
             linkedlist_initialization();
             linkedlist_menu();
             break;
+        case 2:
+
         default:
             main_menu();
     }
