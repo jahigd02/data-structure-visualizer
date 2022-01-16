@@ -14,3 +14,6 @@ but most notably, can print the list to the screen utilizing ASCII graphics.
 - [ ] Queue 
 - [ ] Priority Queue
 - [ ] Hash Table
+
+### Linked List example:
+![image](https://user-images.githubusercontent.com/71796549/149648233-729d8a35-f9b0-4e1b-b025-dc315596c78f.png)
