@@ -82,69 +82,54 @@ void bst::printlist(Node* node)
     std::queue<Node*> travQueue;
     std::vector<int> result;
 
+    int h = treeheight(root) + 1;
+
     travQueue.push(node);
-    /*
-    while (!travQueue.empty())
-    {
-        
-        result.push_back(node->val);
-        if (node->prev != nullptr)
+
+    /* while (!travQueue.empty()) */
+    for (int i = 0; i < pow(2, h) - 1; i++)
+    {   
+        node = travQueue.front();
+        if (node != nullptr)
         {
-            travQueue.push(node->prev);
+            if (node->prev != nullptr)
+            {
+                travQueue.push(node->prev);
+            } else
+            {
+                travQueue.push(nullptr);
+            }
+            if (node->next != nullptr)
+            {
+                travQueue.push(node->next);
+            } else
+            {
+                travQueue.push(nullptr);
+            }
+        } else
+        {
+            travQueue.push(nullptr);
+            travQueue.push(nullptr);
         }
-        if (node->next != nullptr)
+        if (node != nullptr)
         {
-            travQueue.push(node->next);
+            result.push_back(node->val);
+        } else
+        {
+            result.push_back(-1);
         }
         travQueue.pop();
-        node = travQueue.front();
-        
     }
-    */
-
-   for (int i = 0; i < pow(2, treeheight(root) + 1) + 1; i++)
-   {
-       if (node != nullptr)
-       {
-           result.push_back(node->val);
-       }
-       else
-       {
-           result.push_back(-1);
-       }
-
-       if (node != nullptr)
-       {
-           if (node->prev != nullptr)
-           {
-               travQueue.push(node->prev);
-           }
-           else
-           {
-               travQueue.push(nullptr);
-               travQueue.push(nullptr);
-           }
-           if (node->next != nullptr)
-           {
-               travQueue.push(node->next);
-           }
-           else
-           {
-               travQueue.push(nullptr);
-               travQueue.push(nullptr);
-           }
-       } 
-       else
-       {
-           travQueue.push(nullptr);
-           travQueue.push(nullptr);
-       }
-       travQueue.pop();
-       node = travQueue.front();
-   }
-
+    
+    int level = 0;
     for (int i = 0; i < result.size(); i++)
     {
+        if (i+1 == pow(2, level))
+        {
+            std::cout<<"\n";
+            level++;
+        }
         std::cout << result[i] << " ";
     }
+    std::cout << "\n\n";
 }
