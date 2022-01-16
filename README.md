@@ -9,7 +9,7 @@ but most notably, can print the list to the screen utilizing ASCII graphics.
 - [ ] Binary Search Tree
     - [X] Insert Node Functionality
     - [ ] Delete Node
-    - [ ] Print Node (Can print to string, need to write tree visualization functionality)
+    - [X] Print Node (Can print to string, need to write tree visualization functionality)
 - [ ] Stack
 - [ ] Queue 
 - [ ] Priority Queue

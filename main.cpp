@@ -35,6 +35,7 @@ bst myBst;
 
 int main(int argc, char* argv[])
 {
+    std::cout<<"debug";
     main_menu();
 }
 
@@ -107,7 +108,9 @@ void bst_menu()
     std::cout << "Select operation:\n1.Add Item\n2.Print List\n";
     int bstMenuChoice = 0;
     std::cin >> bstMenuChoice;
+
     int item = 0;
+
     switch(bstMenuChoice)
     {
         case 1:
@@ -115,11 +118,12 @@ void bst_menu()
             std::cin >> item;
             myBst.root = myBst.insertnode(item, myBst.root);
             break;
+            
         case 2:
             myBst.printlist(myBst.root);
+            //std::cout << myBst.treeheight(myBst.root);
             break;
     }
-
     bst_menu();
 }
 
