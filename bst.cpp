@@ -1,28 +1,42 @@
 #include <iostream>
 #include <queue>
 #include <vector>
-#include "bst.h"
 
-//TODO: MAKE SURE WE EMPTY TRAVQUEUE BEFORE USING AGAIN
+struct Node
+    {
+        int val;
+        Node* prev;
+        Node* next;
+    };
+
+class bst
+{
+    public:
+        Node* root;
+        bst();
+        Node* createNode(int val);
+        Node* insertnode(int val, Node* node);
+        void printlist(Node* node);
+};
 
 bst::bst()
 {
-    root = nullptr;
+    root = NULL;
 }
 
 Node* bst::createNode(int val)
 {
     Node* newNode = new Node();
     newNode->val = val;
-    newNode->prev = nullptr;
-    newNode->next = nullptr;
+    newNode->prev = NULL;
+    newNode->next = NULL;
 
     return newNode;
 }
 
 Node* bst::insertnode(int val, Node* node)
 {
-    if (node == nullptr)
+    if (node == NULL)
     {
         return createNode(val);
     } 
@@ -38,7 +52,7 @@ Node* bst::insertnode(int val, Node* node)
     return node;
 }
 
-std::vector<int> printlist(Node* node)
+void bst::printlist(Node* node)
 {
     std::queue<Node*> travQueue;
     std::vector<int> result;
@@ -47,16 +61,27 @@ std::vector<int> printlist(Node* node)
 
     while (!travQueue.empty())
     {
-        if (node->prev != nullptr)
+        result.push_back(node->val);
+        if (node->prev != NULL)
         {
             travQueue.push(node->prev);
+        } else if (node->prev == NULL)
+        {
+            result.push_back(-1);
         }
-        if (node->next != nullptr)
+        if (node->next != NULL)
         {
             travQueue.push(node->next);
+        } else if (node->next == NULL)
+        {
+            result.push_back(-1);
         }
-        result.push_back(node->val);
         travQueue.pop();
         node = travQueue.front();
+    }
+
+    for (int i = 0; i < result.size(); i++)
+    {
+        std::cout << result[i] << " ";
     }
 }

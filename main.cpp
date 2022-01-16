@@ -1,7 +1,8 @@
 #include <iostream>
 #include <string>
-#include "linkedlist.h"
-#include "bst.h"
+
+#include "linkedlist.cpp"
+#include "bst.cpp"
 
 //TODO:
 //CONSIDER -- DO WE WANT DATA STRUCTURES TO SAVE WHEN WE RETURN TO MAIN MENU?                           -- DONE
@@ -21,6 +22,7 @@
 
 void main_menu();
 void linkedlist_menu();
+void bst_menu();
 void linkedlist_insertnode_sorted_shell(int val);
 void linkedlist_insertnode_unsorted_shell(int val);
 void linkedlist_deletenode_shell(int val);
@@ -50,7 +52,8 @@ void main_menu()
             linkedlist_menu();
             break;
         case 2:
-
+            bst_menu();
+            break;
         default:
             main_menu();
     }
@@ -93,10 +96,31 @@ void linkedlist_menu()
             main_menu();
             break;
         deafult:
-            linkedlist_menu();
+            break;
     }
 
     linkedlist_menu();
+}
+
+void bst_menu()
+{
+    std::cout << "Select operation:\n1.Add Item\n2.Print List\n";
+    int bstMenuChoice = 0;
+    std::cin >> bstMenuChoice;
+    int item = 0;
+    switch(bstMenuChoice)
+    {
+        case 1:
+            std::cout << "Item to add:\n";
+            std::cin >> item;
+            myBst.root = myBst.insertnode(item, myBst.root);
+            break;
+        case 2:
+            myBst.printlist(myBst.root);
+            break;
+    }
+
+    bst_menu();
 }
 
 void linkedlist_initialization()
