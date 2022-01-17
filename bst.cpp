@@ -83,7 +83,7 @@ void bst::printlist(Node* node)
     std::vector<int> result;
 
     int h = treeheight(root) + 1;
-
+   
     travQueue.push(node);
 
     /* while (!travQueue.empty()) */
