@@ -17,17 +17,19 @@ class bst
         bst();
         Node* createNode(int val);
         Node* insertnode(int val, Node* node);
+        std::vector<int> bfs(Node* node);
         void printlist(Node* node);
         int treeheight(Node* node);
 };
 
-/*
 class treePrinter
 {
     public:
-        void 
+        void tile();
+        void node(int val);
+        void empty();
+        void brk();
 };
-*/
 
 bst::bst()
 {
@@ -77,7 +79,7 @@ int bst::treeheight(Node* node)
     }
 }
 
-void bst::printlist(Node* node)
+std::vector<int> bst::bfs(Node* node)
 {
     std::queue<Node*> travQueue;
     std::vector<int> result;
@@ -120,7 +122,12 @@ void bst::printlist(Node* node)
         }
         travQueue.pop();
     }
-    
+    return result;
+}
+
+void bst::printlist(Node* node)
+{   
+    std::vector<int> result = bfs(root);
     int level = 0;
     for (int i = 0; i < result.size(); i++)
     {
